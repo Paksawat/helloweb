@@ -50,7 +50,10 @@ const year = new Date().getFullYear();
 
     <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-xs text-white/60">© {year} HelloWeb. Alle rettigheder forbeholdes.</p>
-      <p class="text-xs text-white/60">CVR: 44147599 · Bygget med omhu i Danmark.</p>
+      <div class="flex items-center gap-6">
+        <a href="/privatlivspolitik" class="text-xs text-white/60 hover:text-white transition-colors">Privatlivspolitik</a>
+        <p class="text-xs text-white/60">CVR: 44147599 · Bygget med omhu i Danmark.</p>
+      </div>
     </div>
   </div>
 </footer>
