@@ -1,0 +1,53 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+
+const benefits = [
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>`,
+    title: 'Alt inkluderet',
+    text: 'Hjemmeside, hosting, løbende opdateringer og teknisk support. Ét fast månedligt beløb – intet andet.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: 'Ingen overraskelser',
+    text: 'Fast pris, ingen skjulte gebyrer. Du ved præcis hvad du betaler – og hvad du får – hver eneste måned.',
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    title: 'Vi klarer det hele',
+    text: 'Send os en besked når du vil have ændringer. Vi implementerer dem hurtigt, så du kan fokusere på din forretning.',
+  },
+];
+---
+
+<section class="section-padding bg-white relative overflow-hidden">
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary/4 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="container-tight">
+    <div class="text-center mb-16 animate-on-scroll">
+      <SectionLabel text="Hvad du får" />
+      <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] max-w-2xl mx-auto">
+        Alt du har brug for.<br />
+        <span class="text-primary">Samlet i én løsning.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {benefits.map((b, i) => (
+        <div
+          class={`animate-on-scroll delay-${i + 1} group bg-white rounded-3xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 border border-dark/6 relative overflow-hidden`}
+        >
+          <div class="absolute inset-0 bg-primary/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none"></div>
+
+          <div
+            class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-6 shadow-primary-sm group-hover:scale-105 transition-transform duration-300"
+            set:html={b.icon}
+          />
+
+          <h3 class="font-body font-semibold text-xl text-dark mb-3">{b.title}</h3>
+          <p class="text-dark/55 leading-relaxed text-[0.95rem]">{b.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

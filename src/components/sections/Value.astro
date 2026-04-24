@@ -1,0 +1,50 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+
+const items = [
+  'Hjemmeside af professionel håndværk',
+  'Hjælper med hosting og domæne',
+  'Løbende opdateringer og forbedringer',
+  'Teknisk support og vedligeholdelse',
+  'Grundlæggende SEO-opsætning',
+  'Mobilvenligt og hurtigt design',
+  'Hurtige svartider',
+  'Flere hendvendelser om måneden',
+];
+---
+
+<section class="section-padding bg-gray-50/70 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <div class="container-tight">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <div class="animate-on-scroll">
+        <SectionLabel text="Hvad er inkluderet" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] mb-6">
+          Du får mere<br />
+          end en <span class="text-primary">hjemmeside</span>
+        </h2>
+        <p class="text-dark/55 text-lg leading-relaxed">
+          Når du er kunde hos <span class="text-primary font-semibold">HelloWeb</span>, har du en kontaktperson i ryggen. Vi holder din digitale tilstedeværelse skarp, opdateret og professionel, så du ikke behøver at tænke over det.
+        </p>
+        <p class="text-dark/55 text-lg leading-relaxed mt-2">
+          Skulle du have småændringer, er du altid velkommen til at kontakte os. Vi er her for at hjælpe.
+        </p>
+      </div>
+
+      <div class="animate-on-scroll delay-2">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {items.map((item) => (
+            <li class="flex items-center gap-3.5 bg-white rounded-2xl px-5 py-4 shadow-card border border-dark/5">
+              <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="text-dark/75 text-sm font-medium leading-tight">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

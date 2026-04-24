@@ -1,0 +1,59 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Button from '../ui/Button.astro';
+
+const steps = [
+  {
+    num: '1',
+    title: 'Vi tager en snak',
+    text: 'Vi lytter til din forretning og dine behov. Intet pres, ingen forpligtelse – bare en god snak om hvad vi kan gøre for dig.',
+  },
+  {
+    num: '2',
+    title: 'Vi bygger din hjemmeside',
+    text: 'Vi designer og bygger en hjemmeside der passer til din forretning. Du godkender, og vi sørger for at alt er klar til at gå live.',
+  },
+  {
+    num: '3',
+    title: 'Vi driver og forbedrer den',
+    text: 'Vi opdaterer og optimerer løbende din hjemmeside, så den altid er hurtig, sikker og klar til at skabe henvendelser.',
+  },
+];
+---
+
+<section class="section-padding bg-dark relative overflow-hidden grid-pattern">
+
+  <div class="container-tight relative">
+    <div class="text-center mb-16 animate-on-scroll">
+      <SectionLabel text="Sådan virker det" light />
+      <h2 class="font-display text-4xl md:text-5xl text-white leading-[1.1]">
+        Tre enkle <span class="text-accent">trin</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 relative">
+      <!-- Connector line desktop -->
+      <div class="hidden md:block absolute top-[2.25rem] left-[calc(16.67%+1.5rem)] right-[calc(16.67%+1.5rem)] h-px bg-accent/25" aria-hidden="true"></div>
+
+      {steps.map((step, i) => (
+        <div class={`animate-on-scroll delay-${i + 1} flex flex-col items-start md:items-center text-left md:text-center gap-5`}>
+          <div class="relative z-10 w-[4.5rem] h-[4.5rem] rounded-full bg-accent flex items-center justify-center flex-shrink-0 shadow-sm">
+            <span class="font-display text-2xl text-white font-bold">{step.num}</span>
+          </div>
+
+          <div>
+            <h3 class="font-body font-semibold text-xl text-white mb-3">{step.title}</h3>
+            <p class="text-white/50 leading-relaxed text-[0.95rem] max-w-xs mx-auto">{step.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-14 animate-on-scroll">
+      <Button href="/kontakt" variant="primary" size="lg">
+        Start med et gratis kald
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </Button>
+    </div>
+  </div>
+</section>

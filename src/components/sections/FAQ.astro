@@ -1,0 +1,93 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+
+const faqs = [
+  {
+    q: 'Hvor lang tid tager det at få lavet en hjemmeside?',
+    a: 'De fleste hjemmesider er klar inden for 1–2 uger, afhængigt af hvor hurtigt vi får indhold på plads.',
+  },
+  {
+    q: 'Skal jeg selv gøre noget?',
+    a: 'Nej — jeg står for det hele. Du skal bare sende det indhold du vil have på siden, så klarer jeg resten.',
+  },
+  {
+    q: 'Hvad hvis jeg vil have ændringer?',
+    a: 'Små ændringer som fx tekst, billeder eller mindre justeringer er altid inkluderet. Du skriver bare, så fikser jeg det.',
+  },
+  {
+    q: 'Hvad hvis jeg allerede har en hjemmeside?',
+    a: 'Så kan vi enten forbedre den eller lave en ny — alt efter hvad der giver bedst mening.',
+  },
+  {
+    q: 'Er der en binding?',
+    a: 'Der er en minimumsperiode på 6 måneder, hvis man vælger den faste løsning så vi kan nå at få noget der faktisk virker og skaber værdi.',
+  },
+  {
+    q: 'Hvad hvis jeg stopper samarbejdet?',
+    a: 'Så stopper løsningen også, da jeg står for hele hjemmesiden og driften. Hvis du ønsker at beholde siden, kan vi altid finde en løsning.',
+  },
+  {
+    q: 'Hvad koster det?',
+    a: 'De fleste vælger en fast løsning til 1.500 kr om måneden, hvor jeg står for det hele. Der er også mulighed for en løsning med opstartspris, men lavere månedlig pris. Eller hvis du ønsker noget mere skræddersyet, kan vi tage en snak om det.',
+  },
+];
+---
+
+<section class="section-padding bg-dark relative overflow-hidden grid-pattern">
+
+  <div class="container-tight relative">
+
+    <div class="text-center mb-14 animate-on-scroll">
+      <SectionLabel light text="Spørgsmål & svar" />
+      <h2 class="font-display text-4xl md:text-5xl text-white leading-[1.1]">
+        Ofte stillede spørgsmål
+      </h2>
+    </div>
+
+    <div class="max-w-2xl mx-auto divide-y divide-white/10">
+      {faqs.map((faq, i) => (
+        <details class={`animate-on-scroll delay-${Math.min(i + 1, 4)} group py-5`}>
+          <summary class="flex items-center justify-between gap-6 cursor-pointer list-none">
+            <span class="font-body font-semibold text-white text-base md:text-lg leading-snug group-open:text-accent transition-colors duration-200">
+              {faq.q}
+            </span>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full border border-white/20 flex items-center justify-center transition-transform duration-200 group-open:rotate-45">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/50"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </summary>
+          <div class="faq-body overflow-hidden">
+            <p class="mt-4 pb-1 text-white/55 leading-relaxed text-[0.95rem] pr-12">
+              {faq.a}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('details').forEach(details => {
+    const summary = details.querySelector('summary')!;
+    const body = details.querySelector<HTMLElement>('.faq-body')!;
+
+    summary.addEventListener('click', e => {
+      e.preventDefault();
+
+      if (details.open) {
+        const anim = body.animate(
+          [{ height: body.scrollHeight + 'px' }, { height: '0px' }],
+          { duration: 260, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
+        );
+        anim.onfinish = () => details.removeAttribute('open');
+      } else {
+        details.setAttribute('open', '');
+        body.animate(
+          [{ height: '0px' }, { height: body.scrollHeight + 'px' }],
+          { duration: 300, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
+        );
+      }
+    });
+  });
+</script>

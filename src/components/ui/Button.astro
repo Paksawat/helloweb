@@ -1,0 +1,52 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'accent' | 'ghost' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  type?: 'button' | 'submit';
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  type = 'button',
+} = Astro.props;
+
+const base = [
+  'group relative overflow-hidden isolate',
+  "before:content-[''] before:absolute before:inset-0 before:-z-10",
+  'before:-translate-x-full hover:before:translate-x-0',
+  'before:transition-transform before:duration-300 before:ease-out',
+  'inline-flex items-center gap-2 font-body font-semibold rounded-full',
+  'transition-all duration-200 leading-none',
+  '[&>svg]:transition-transform [&>svg]:duration-200 [&:hover>svg]:translate-x-1',
+].join(' ');
+
+const sizes = {
+  sm: 'px-5 py-2.5 text-sm',
+  md: 'px-7 py-3.5 text-sm',
+  lg: 'px-8 py-4 text-base',
+};
+
+const variants = {
+  primary: 'bg-primary text-white shadow-primary-sm hover:shadow-primary-md active:scale-[0.97] before:bg-primary-light',
+  accent:  'bg-accent text-dark shadow-sm hover:shadow-md active:scale-[0.97] before:bg-accent/80',
+  ghost:   'bg-transparent text-dark border-2 border-dark/15 hover:border-dark/30 active:scale-[0.97] before:bg-dark/6',
+  dark:    'bg-white text-dark shadow-sm hover:shadow-md active:scale-[0.97] before:bg-dark/8',
+};
+
+const classes = [base, sizes[size], variants[variant], className].join(' ');
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes}>
+    <slot />
+  </button>
+)}

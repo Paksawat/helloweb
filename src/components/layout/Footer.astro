@@ -1,0 +1,56 @@
+---
+import logoIconRaw from '../../assets/logo-icon.svg?raw';
+import logoTextRaw from '../../assets/Logo-text.svg?raw';
+
+const logoIcon = logoIconRaw.replace('<svg ', '<svg style="height: 32px; width: auto; display: block;" ');
+const logoText = logoTextRaw.replace('<svg ', '<svg style="height: 21px; width: auto; display: block;" ');
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-dark text-white/70">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+
+      <!-- Brand column -->
+      <div class="md:col-span-1">
+        <a href="/" class="flex items-center gap-2.5 mb-3" aria-label="HelloWeb">
+          <span set:html={logoIcon} />
+          <span set:html={logoText} />
+        </a>
+        <p class="text-sm leading-relaxed max-w-xs">
+          Vi bygger og står for din hjemmeside, så du kan fokusere på din virksomhed.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <p class="font-mono text-[11px] tracking-label uppercase text-white/60 mb-5">Navigation</p>
+        <ul class="space-y-3">
+          <li><a href="/" class="text-sm hover:text-white transition-colors">Hjem</a></li>
+          <li><a href="/om-os" class="text-sm hover:text-white transition-colors">Om os</a></li>
+          <li><a href="/kontakt" class="text-sm hover:text-white transition-colors">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="font-mono text-[11px] tracking-label uppercase text-white/60 mb-5">Kontakt</p>
+        <a
+          href="mailto:kontakt@helloweb.dk"
+          class="text-sm hover:text-white transition-colors flex items-center gap-2"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          kontakt@helloweb.dk
+        </a>
+        <p class="text-xs mt-6 text-white/60">Vi svarer inden for ét arbejdsdøgn.</p>
+      </div>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-white/60">© {year} HelloWeb. Alle rettigheder forbeholdes.</p>
+      <p class="text-xs text-white/60">CVR: 44147599 · Bygget med omhu i Danmark.</p>
+    </div>
+  </div>
+</footer>

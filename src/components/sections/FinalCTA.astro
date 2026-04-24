@@ -1,0 +1,38 @@
+---
+import Button from '../ui/Button.astro';
+import SectionLabel from '../ui/SectionLabel.astro';
+---
+
+<section class="section-padding bg-dark relative overflow-hidden grid-pattern">
+
+  <div class="container-tight relative text-center">
+    <div class="animate-on-scroll">
+      <div class="inline-flex items-center gap-2.5 mb-6">
+         <SectionLabel light text="Få din webpartner" />
+      </div>
+
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] mb-6 max-w-3xl mx-auto">
+        Klar til en hjemmeside<br />
+        der faktisk <span class="text-accent">virker?</span>
+      </h2>
+
+      <p class="text-white/55 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto">
+        Lad os tage en uforpligtende snak om hvordan vi kan udvide success for din virksomhed.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <Button href="/kontakt" variant="accent" text-white size="lg">
+          Få en gratis gennemgang
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </Button>
+        <a
+          href="mailto:kontakt@helloweb.dk"
+          class="text-white/60 hover:text-white text-sm font-medium transition-colors flex items-center gap-2"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          kontakt@helloweb.dk
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

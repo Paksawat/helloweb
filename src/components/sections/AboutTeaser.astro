@@ -1,0 +1,131 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Button from '../ui/Button.astro';
+---
+
+<section class="section-padding bg-white relative overflow-hidden">
+  <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2" aria-hidden="true"></div>
+
+  <div class="container-tight">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
+
+      <!-- Image block -->
+      <div class="animate-on-scroll relative">
+        <div class="rounded-tl-[4rem] rounded-br-[4rem] rounded-tr-2xl rounded-bl-2xl overflow-hidden relative aspect-[4/3] bg-[#EEEDF2] p-4 flex items-center justify-center">
+          <svg viewBox="0 0 760 540" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-xl">
+            <!-- Browser window -->
+            <rect width="760" height="540" rx="10" fill="white"/>
+
+            <!-- Title bar -->
+            <rect width="760" height="42" rx="10" fill="#F0EFF4"/>
+            <rect y="32" width="760" height="10" fill="#F0EFF4"/>
+            <!-- Traffic light dots -->
+            <circle cx="24" cy="21" r="5.5" fill="#FF5F57"/>
+            <circle cx="44" cy="21" r="5.5" fill="#FEBC2E"/>
+            <circle cx="64" cy="21" r="5.5" fill="#28C840"/>
+            <!-- URL bar -->
+            <rect x="110" y="10" width="540" height="22" rx="5" fill="#E3E1EC"/>
+            <text x="380" y="25" text-anchor="middle" fill="#9490A8" font-size="10" font-family="monospace">helloweb.dk</text>
+
+            <!-- ── Nav ── -->
+            <rect x="0" y="42" width="760" height="46" fill="white"/>
+            <!-- Logo mark -->
+            <circle cx="34" cy="65" r="5" fill="#3EF48D"/>
+            <text x="44" y="70" fill="#6D57BD" font-size="13" font-weight="700" font-family="sans-serif">HelloWeb</text>
+            <!-- Nav links -->
+            <text x="310" y="70" fill="#666" font-size="11" font-family="sans-serif">Hjem</text>
+            <text x="365" y="70" fill="#666" font-size="11" font-family="sans-serif">Om os</text>
+            <text x="420" y="70" fill="#666" font-size="11" font-family="sans-serif">Kontakt</text>
+            <!-- CTA button -->
+            <rect x="616" y="54" width="118" height="26" rx="13" fill="#6D57BD"/>
+            <text x="675" y="70" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif">Få en gratis snak</text>
+
+            <!-- ── Hero ── -->
+            <rect x="0" y="88" width="760" height="224" fill="#333030"/>
+            <!-- Accent dot pattern hint -->
+            <circle cx="640" cy="110" r="50" fill="#6D57BD" opacity="0.25"/>
+            <circle cx="700" cy="170" r="30" fill="#3EF48D" opacity="0.12"/>
+            <!-- Label -->
+            <rect x="48" y="116" width="12" height="1.5" rx="1" fill="#3EF48D"/>
+            <text x="68" y="119" fill="#3EF48D" font-size="8" font-family="monospace" letter-spacing="1.5">DIN WEBPARTNER</text>
+            <!-- Headline -->
+            <text x="48" y="154" fill="white" font-size="22" font-weight="700" font-family="sans-serif">Vi bygger hjemmesider</text>
+            <text x="48" y="180" fill="white" font-size="22" font-weight="700" font-family="sans-serif">der <tspan fill="#6D57BD">skaber kunder</tspan></text>
+            <!-- Subtext lines -->
+            <rect x="48" y="198" width="290" height="7" rx="3" fill="white" opacity="0.2"/>
+            <rect x="48" y="212" width="240" height="7" rx="3" fill="white" opacity="0.2"/>
+            <!-- Buttons -->
+            <rect x="48" y="234" width="138" height="30" rx="15" fill="#3EF48D"/>
+            <text x="117" y="253" text-anchor="middle" fill="#333030" font-size="10" font-weight="700" font-family="sans-serif">Kom i gang i dag</text>
+            <rect x="198" y="234" width="90" height="30" rx="15" fill="none" stroke="white" stroke-width="1.2" opacity="0.4"/>
+            <text x="243" y="253" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif">Se priser</text>
+            <!-- Phone mockup in hero -->
+            <rect x="558" y="96" width="164" height="208" rx="16" fill="#6D57BD" opacity="0.5"/>
+            <rect x="570" y="108" width="140" height="184" rx="10" fill="#1E1A2E"/>
+            <rect x="580" y="122" width="88" height="7" rx="3" fill="white" opacity="0.7"/>
+            <rect x="580" y="136" width="120" height="5" rx="2.5" fill="white" opacity="0.25"/>
+            <rect x="580" y="148" width="100" height="5" rx="2.5" fill="white" opacity="0.25"/>
+            <rect x="580" y="168" width="74" height="20" rx="10" fill="#3EF48D"/>
+            <text x="617" y="182" text-anchor="middle" fill="#1E1A2E" font-size="9" font-weight="700" font-family="sans-serif">Kontakt os</text>
+            <rect x="580" y="200" width="120" height="40" rx="8" fill="#6D57BD" opacity="0.4"/>
+            <rect x="580" y="250" width="120" height="8" rx="4" fill="white" opacity="0.12"/>
+            <rect x="580" y="264" width="90" height="8" rx="4" fill="white" opacity="0.12"/>
+
+            <!-- ── Cards section ── -->
+            <rect x="0" y="312" width="760" height="228" fill="#F5F4F9"/>
+            <!-- Section title -->
+            <text x="380" y="344" text-anchor="middle" fill="#6D57BD" font-size="9" font-family="monospace" letter-spacing="1.5">HVAD VI TILBYDER</text>
+            <text x="380" y="366" text-anchor="middle" fill="#333030" font-size="16" font-weight="700" font-family="sans-serif">Alt inkluderet, fast pris</text>
+            <!-- Card 1 -->
+            <rect x="32" y="382" width="210" height="128" rx="10" fill="white"/>
+            <rect x="48" y="398" width="24" height="3.5" rx="2" fill="#6D57BD"/>
+            <rect x="48" y="414" width="100" height="8" rx="3" fill="#333030" opacity="0.6"/>
+            <rect x="48" y="430" width="180" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="48" y="442" width="160" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="48" y="454" width="140" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="48" y="474" width="60" height="20" rx="10" fill="#F0EFF4"/>
+            <text x="78" y="488" text-anchor="middle" fill="#6D57BD" font-size="9" font-family="sans-serif">Læs mere →</text>
+            <!-- Card 2 -->
+            <rect x="275" y="382" width="210" height="128" rx="10" fill="white"/>
+            <rect x="291" y="398" width="24" height="3.5" rx="2" fill="#6D57BD"/>
+            <rect x="291" y="414" width="80" height="8" rx="3" fill="#333030" opacity="0.6"/>
+            <rect x="291" y="430" width="180" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="291" y="442" width="160" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="291" y="454" width="140" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="291" y="474" width="60" height="20" rx="10" fill="#F0EFF4"/>
+            <text x="321" y="488" text-anchor="middle" fill="#6D57BD" font-size="9" font-family="sans-serif">Læs mere →</text>
+            <!-- Card 3 -->
+            <rect x="518" y="382" width="210" height="128" rx="10" fill="white"/>
+            <rect x="534" y="398" width="24" height="3.5" rx="2" fill="#3EF48D"/>
+            <rect x="534" y="414" width="110" height="8" rx="3" fill="#333030" opacity="0.6"/>
+            <rect x="534" y="430" width="180" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="534" y="442" width="160" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="534" y="454" width="140" height="6" rx="3" fill="#333030" opacity="0.18"/>
+            <rect x="534" y="474" width="60" height="20" rx="10" fill="#F0EFF4"/>
+            <text x="564" y="488" text-anchor="middle" fill="#6D57BD" font-size="9" font-family="sans-serif">Læs mere →</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="animate-on-scroll delay-2">
+        <SectionLabel text="Om HelloWeb" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] mb-6">
+          Vi hjælper lokale virksomheder<br />
+          med at <span class="text-primary">fremstå professionelle</span>
+        </h2>
+        <p class="text-dark/60 leading-relaxed mb-5">
+          HelloWeb opstod ud fra en simpel observation: Mange dygtige håndværkere, servicefolk og lokale iværksættere mangler en hjemmeside der matcher den kvalitet de leverer.
+        </p>
+        <p class="text-dark/60 leading-relaxed mb-8">
+          Vi er ikke et bureau med hundredvis af kunder og lange leveringstider. Vi er et lille, dedikeret team der fokuserer på at levere en personlig og pålidelig service. Hver gang.
+        </p>
+        <Button href="/om-os" variant="ghost">
+          Læs mere om os
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </Button>
+      </div>
+
+    </div>
+  </div>
+</section>

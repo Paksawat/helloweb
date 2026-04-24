@@ -1,0 +1,14 @@
+---
+interface Props {
+  text: string;
+  light?: boolean;
+}
+const { text, light = false } = Astro.props;
+---
+
+<div class="inline-flex items-center gap-2.5 mb-5">
+  <span class={`w-4 h-px ${light ? 'bg-accent' : 'bg-primary'}`}></span>
+  <span class={`font-mono text-[11px] tracking-label uppercase font-bold ${light ? 'text-accent' : 'text-primary'}`}>
+    {text}
+  </span>
+</div>

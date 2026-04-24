@@ -1,0 +1,112 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Button from '../ui/Button.astro';
+
+const points = [
+  'Du betaler ét fast beløb om måneden',
+  'Vi bygger, vedligeholder og forbedrer løbende',
+  'Du behøver ingen store engangsbetalinger',
+  'Professionelt design inkluderet fra dag ét',
+];
+
+const included = [
+  'Hjemmeside klar til brug',
+  'Sikker hosting og domæne',
+  'Løbende opdateringer og forbedringer',
+  'Teknisk support og vedligeholdelse',
+  'Grundlæggende SEO-opsætning',
+  'Mobilvenligt og hurtigt design',
+];
+---
+
+<section class="section-padding bg-white relative overflow-hidden">
+  <div class="absolute top-1/2 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
+
+  <div class="container-tight">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Text side -->
+      <div class="animate-on-scroll">
+        <SectionLabel text="Løsningen" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] mb-6">
+          En hjemmeside der altid<br />
+          <span class="text-primary">arbejder for dig</span>
+        </h2>
+        <p class="text-dark/60 text-lg leading-relaxed mb-8">
+          I stedet for at betale et bureau eller freelancer én stor sum og aldrig høre fra dem igen, får du en dedikeret partner, der løbende holder din side professionel, opdateret og klar.
+        </p>
+        <p class="text-dark/60 text-lg leading-relaxed mb-8">
+          Forestil dig at have en person der passer din hjemmeside, til en overkommelig pris, der giver dig ro og tid. Det er præcis hvad HelloWeb er.
+        </p>
+
+        <ul class="space-y-3 mb-10">
+          {points.map((point) => (
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="text-dark/75 text-sm leading-relaxed">{point}</span>
+            </li>
+          ))}
+        </ul>
+
+        <Button href="/kontakt" size="md">
+          Hør mere – lad os tage en snak
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </Button>
+      </div>
+
+      <!-- Pricing cards -->
+      <div class="animate-on-scroll delay-2 space-y-4">
+
+        <!-- Primary: Fast løsning -->
+        <div class="gradient-border bg-white p-8 relative shadow-primary-md">
+
+          <!-- Most chosen badge -->
+          <div class="absolute -top-3.5 left-8">
+            <span class="bg-primary text-white text-[11px] font-semibold font-mono tracking-label uppercase px-4 py-1.5 rounded-full">
+              Mest valgt
+            </span>
+          </div>
+
+          <div class="mb-6 pt-1">
+            <p class="font-mono font-bold text-[11px] tracking-label uppercase text-primary mb-2">Fast løsning</p>
+            <h3 class="font-display text-2xl text-dark mb-4">Alt inkluderet</h3>
+
+            <div class="flex items-baseline gap-3 mb-1">
+              <span class="font-display text-4xl font-extrabold text-dark">1.500 kr</span>
+              <span class="text-dark/50 text-sm">/ md</span>
+            </div>
+            <p class="text-dark/45 text-sm">0 kr opstart</p>
+          </div>
+
+          <ul class="space-y-3 mb-6">
+            {included.map((item) => (
+              <li class="flex items-center gap-3">
+                <svg class="flex-shrink-0 text-primary" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-dark/70 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p class="text-dark/40 text-xs font-semibold">Minimumsperiode 6 måneder</p>
+        </div>
+
+        <!-- Alternative -->
+        <div class="rounded-2xl border border-dark/10 bg-white p-6 relative">
+          <p class="font-mono font-bold text-[11px] tracking-label uppercase text-dark/40 mb-3 text-primary">Alternativt</p>
+
+          <div class="flex items-baseline gap-3 mb-1">
+            <span class="font-display text-3xl font-extrabold text-dark">1.000 kr</span>
+            <span class="text-dark/50 text-sm">/ md</span>
+          </div>
+          <p class="text-dark/45 text-sm mb-3">5.000 kr opstart</p>
+          <p class="text-dark/40 text-xs font-semibold">Ingen minimumsperiode</p>
+        </div>
+
+        <p class="text-dark/40 text-xs font-semibold text-center">Alle priser er ekskl. moms</p>
+      </div>
+
+    </div>
+  </div>
+</section>

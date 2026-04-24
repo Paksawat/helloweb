@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionLabel from '../components/ui/SectionLabel.astro';
+import Button from '../components/ui/Button.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+
+const values = [
+  {
+    title: 'Enkelthed',
+    text: 'Vi fjerner kompleksiteten. Vores kunder behøver ikke forstå teknologi – de behøver bare resultatet.',
+  },
+  {
+    title: 'Tillid',
+    text: 'Vi siger hvad vi mener og mener hvad vi siger. Fast pris, klare aftaler og ærlig kommunikation.',
+  },
+  {
+    title: 'Partnerskab',
+    text: 'Vi ser os selv som en del af din forretning – ikke blot en leverandør. Din succes er vores succes.',
+  },
+];
+---
+
+<BaseLayout
+  title="Om os – HelloWeb"
+  description="Lær HelloWeb at kende. Vi er et dedikeret team der hjælper lokale virksomheder med professionelle hjemmesider til en fast, overskuelig månedlig pris."
+>
+  <!-- Page hero -->
+  <section class="section-padding bg-dark relative overflow-hidden dot-pattern">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/3" aria-hidden="true"></div>
+
+    <div class="container-tight relative">
+      <div class="max-w-3xl">
+        <SectionLabel text="Om HelloWeb" light />
+        <h1 class="font-display text-[2.8rem] sm:text-[3.5rem] md:text-[4rem] leading-[1.05] tracking-[-0.02em] text-white mb-8">
+          Vi gør det nemt at<br />
+          fremstå <span class="text-accent">professionelt online</span>
+        </h1>
+        <p class="text-xl text-white/60 leading-relaxed max-w-2xl">
+          HelloWeb er skabt til lokale virksomheder der ønsker en stærk digital tilstedeværelse, uden at skulle lære kode, betale store engangsbeløb eller vente måneder på en hjemmeside.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story section -->
+  <section class="section-padding bg-white">
+    <div class="container-tight">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <div class="animate-on-scroll">
+          <SectionLabel text="Vores historie" />
+          <h2 class="font-display text-3xl md:text-4xl text-dark leading-[1.15] mb-6">
+            Bygget til dem der<br />
+            <span class="text-primary">driver forretning</span>
+          </h2>
+          <div class="space-y-5 text-dark/60 leading-relaxed">
+            <p>
+              HelloWeb opstod ud fra en simpel observation: Mange dygtige håndværkere, servicefolk og lokale iværksættere er eksperter i det de laver – men mangler tid, lyst eller viden til at håndtere en professionel hjemmeside.
+            </p>
+            <p>
+              De fleste har enten ingen hjemmeside, en gammel side der aldrig opdateres, eller de har betalt et bureau en stor sum og aldrig hørt fra dem siden. Det er et problem vi vil løse.
+            </p>
+            <p>
+              Med HelloWeb får du en partner der tager ansvar for din online tilstedeværelse løbende, ikke bare én gang. Vi er her hver måned, klar til at holde din side opdateret og professionel.
+            </p>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll delay-2">
+          <div class="bg-dark rounded-3xl p-8 md:p-10 relative overflow-hidden dot-pattern">
+            <div class="absolute -top-8 -right-8 w-40 h-40 bg-accent/15 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+            <p class="font-mono text-[11px] tracking-label uppercase text-white/40 mb-5">Vores mission</p>
+            <p class="font-display text-2xl md:text-3xl text-white leading-[1.2] relative z-10">
+              "At hjælpe små virksomheder med løbende, at få flere kunder gennem en simpel hjemmeside, hvor vi tager os af det hele."
+            </p>
+            <div class="mt-6 w-12 h-1 rounded-full bg-accent"></div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="bg-gray-50 rounded-2xl p-5 shadow-card border border-dark/5 text-center">
+              <p class="font-display text-3xl text-primary">100%</p>
+              <p class="text-dark/50 text-xs mt-1 font-medium">Fast månedlig pris</p>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-5 shadow-card border border-dark/5 text-center">
+              <p class="font-display text-3xl text-primary">&lt; 24t</p>
+              <p class="text-dark/50 text-xs mt-1 font-medium">Svartid på beskeder</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Values section -->
+  <section class="section-padding bg-dark dot-pattern">
+    <div class="container-tight">
+      <div class="text-center mb-14 animate-on-scroll">
+        <SectionLabel text="Vores værdier" light />
+        <h2 class="font-display text-4xl md:text-5xl text-white leading-[1.1]">
+          Det vi tror på
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {values.map((v, i) => (
+          <div class={`animate-on-scroll delay-${i + 1} bg-white/5 rounded-3xl p-8 border border-white/10`}>
+            <div class="w-10 h-1 rounded-full bg-accent mb-5"></div>
+            <h3 class="font-body font-semibold text-xl text-white mb-3">{v.title}</h3>
+            <p class="text-white/55 leading-relaxed text-sm">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us section -->
+  <section class="section-padding bg-white relative overflow-hidden">
+    <div class="container-tight relative">
+      <div class="max-w-2xl animate-on-scroll">
+        <SectionLabel text="Hvorfor HelloWeb" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] mb-8">
+          Ikke et bureau.<br />
+          <span class="text-primary">En partner.</span>
+        </h2>
+        <div class="space-y-5 text-dark/60 leading-relaxed">
+          <p>
+            Traditionelle webdesign-bureauer leverer en hjemmeside og forsvinder. Prisen er høj, processen er lang, og du er på egen hånd bagefter.
+          </p>
+          <p>
+            HelloWeb er bygget anderledes. Vi er her hver måned – parat til at opdatere, forbedre og støtte dig. Vi er ikke interesserede i at sælge dig noget du ikke har brug for.
+          </p>
+          <p>
+            Vi holder tingene enkle, ærlige og tilgængelige. Fordi det er den slags service vi selv ville ønske at have.
+          </p>
+        </div>
+        <div class="mt-10">
+          <Button href="/kontakt" variant="primary" size="md">
+            Lad os tale om din forretning
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</BaseLayout>
