@@ -60,18 +60,20 @@ import Button from '../components/ui/Button.astro';
             <h2 class="font-display text-2xl text-white mb-2">Send os en besked</h2>
             <p class="text-white/50 text-sm mb-8">Vi vender tilbage inden for ét arbejdsdøgn.</p>
 
-            <form id="contact-form" action="https://formspree.io/f/myklowvk" method="POST" class="space-y-5">
+            <form id="contact-form" action="https://formspree.io/f/myklowvk" method="POST" class="space-y-5" novalidate>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="name" class="block text-xs font-medium text-white mb-1.5 font-mono tracking-label uppercase">Navn</label>
-                  <input type="text" id="name" name="name" required placeholder="Gerne med efternavn"
-                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200" />
+                  <input type="text" id="name" name="name" required placeholder="Gerne med efternavn" data-fs-field
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 aria-[invalid]:border-red-400/60" />
+                  <span data-fs-error="name" class="mt-1 text-xs text-red-400 hidden"></span>
                 </div>
                 <div>
                   <label for="email" class="block text-xs font-medium text-white mb-1.5 font-mono tracking-label uppercase">Email</label>
-                  <input type="email" id="email" name="email" required placeholder="din@email.dk"
-                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200" />
+                  <input type="email" id="email" name="email" required placeholder="din@email.dk" data-fs-field
+                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 aria-[invalid]:border-red-400/60" />
+                  <span data-fs-error="email" class="mt-1 text-xs text-red-400 hidden"></span>
                 </div>
               </div>
 
@@ -91,22 +93,23 @@ import Button from '../components/ui/Button.astro';
 
               <div>
                 <label for="message" class="block text-xs font-medium text-white mb-1.5 font-mono tracking-label uppercase">Besked</label>
-                <textarea id="message" name="message" rows="4" required
+                <textarea id="message" name="message" rows="4" required data-fs-field
                   placeholder="Fortæl os lidt om hvad du har brug for, eller stil et spørgsmål..."
-                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 resize-none"
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 resize-none aria-[invalid]:border-red-400/60"
                 ></textarea>
+                <span data-fs-error="message" class="mt-1 text-xs text-red-400 hidden"></span>
               </div>
 
-              <Button id="submit-btn" type="submit" size="lg" class="w-full justify-center">
+              <Button type="submit" size="lg" class="w-full justify-center" data-fs-submit-btn>
                 Send besked
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Button>
 
-              <p id="form-error" class="hidden text-center text-xs text-red-400">Noget gik galt. Prøv igen eller skriv til kontakt@helloweb.dk.</p>
+              <div data-fs-error class="hidden text-center text-xs text-red-400">Noget gik galt. Prøv igen eller skriv til kontakt@helloweb.dk.</div>
               <p class="text-center text-xs text-white/60">Vi svarer inden for ét arbejdsdøgn. Ingen spam, aldrig.</p>
             </form>
 
-            <div id="form-success" class="hidden text-center py-8">
+            <div data-fs-success style="display:none" class="text-center py-8">
               <div class="w-14 h-14 rounded-full bg-accent/15 flex items-center justify-center mx-auto mb-5">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
@@ -119,32 +122,15 @@ import Button from '../components/ui/Button.astro';
       </div>
     </div>
   </section>
+
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-  const successMsg = document.getElementById('form-success') as HTMLElement;
-  const errorMsg = document.getElementById('form-error') as HTMLElement;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sender…';
-    errorMsg.classList.add('hidden');
-
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
-    });
-
-    if (res.ok) {
-      form.classList.add('hidden');
-      successMsg.classList.remove('hidden');
-    } else {
-      errorMsg.classList.remove('hidden');
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Send besked <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  declare global {
+    interface Window {
+      formspree: ((...args: unknown[]) => void) & { q?: unknown[] };
     }
-  });
+  }
+  window.formspree = window.formspree || function(...args) { (window.formspree.q = window.formspree.q || []).push(args); };
+  window.formspree('initForm', { formElement: '#contact-form', formId: 'myklowvk' });
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </BaseLayout>
