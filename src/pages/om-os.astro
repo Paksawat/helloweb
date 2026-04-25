@@ -3,26 +3,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionLabel from '../components/ui/SectionLabel.astro';
 import Button from '../components/ui/Button.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
+import { Image } from 'astro:assets';
+import meImage from '../assets/me.webp';
 
 const values = [
   {
     title: 'Enkelthed',
-    text: 'Vi fjerner kompleksiteten. Vores kunder behøver ikke forstå teknologi – de behøver bare resultatet.',
+    text: 'Jeg fjerner kompleksiteten. Mine kunder behøver ikke forstå teknologi – de behøver bare resultatet.',
   },
   {
     title: 'Tillid',
-    text: 'Vi siger hvad vi mener og mener hvad vi siger. Fast pris, klare aftaler og ærlig kommunikation.',
+    text: 'Jeg siger hvad jeg mener og mener hvad jeg siger. Fast pris, klare aftaler og ærlig kommunikation.',
   },
   {
     title: 'Partnerskab',
-    text: 'Vi ser os selv som en del af din forretning – ikke blot en leverandør. Din succes er vores succes.',
+    text: 'Jeg ser mig selv som en del af din forretning – ikke blot en leverandør. Din succes er min succes.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Om os – HelloWeb"
-  description="Lær HelloWeb at kende. Vi er et dedikeret team der hjælper lokale virksomheder med professionelle hjemmesider til en fast, overskuelig månedlig pris."
+  title="Om mig – HelloWeb"
+  description="Lær HelloWeb at kende. Jeg hjælper lokale virksomheder med professionelle hjemmesider til en fast, overskuelig månedlig pris."
 >
   <!-- Page hero -->
   <section class="section-padding bg-dark relative overflow-hidden dot-pattern">
@@ -30,9 +32,9 @@ const values = [
 
     <div class="container-tight relative">
       <div class="max-w-3xl">
-        <SectionLabel text="Om HelloWeb" light />
+        <SectionLabel text="Om mig" light />
         <h1 class="font-display text-[2.8rem] sm:text-[3.5rem] md:text-[4rem] leading-[1.05] tracking-[-0.02em] text-white mb-8">
-          Vi gør det nemt at<br />
+          Jeg gør det nemt at<br />
           fremstå <span class="text-accent">professionelt online</span>
         </h1>
         <p class="text-xl text-white/60 leading-relaxed max-w-2xl">
@@ -45,10 +47,10 @@ const values = [
   <!-- Story section -->
   <section class="section-padding bg-white">
     <div class="container-tight">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         <div class="animate-on-scroll">
-          <SectionLabel text="Vores historie" />
+          <SectionLabel text="Min historie" />
           <h2 class="font-display text-3xl md:text-4xl text-dark leading-[1.15] mb-6">
             Bygget til dem der<br />
             <span class="text-primary">driver forretning</span>
@@ -58,34 +60,21 @@ const values = [
               HelloWeb opstod ud fra en simpel observation: Mange dygtige håndværkere, servicefolk og lokale iværksættere er eksperter i det de laver – men mangler tid, lyst eller viden til at håndtere en professionel hjemmeside.
             </p>
             <p>
-              De fleste har enten ingen hjemmeside, en gammel side der aldrig opdateres, eller de har betalt et bureau en stor sum og aldrig hørt fra dem siden. Det er et problem vi vil løse.
+              De fleste har enten ingen hjemmeside, en gammel side der aldrig opdateres, eller de har betalt et bureau en stor sum og aldrig hørt fra dem siden. Det er et problem jeg vil løse.
             </p>
             <p>
-              Med HelloWeb får du en partner der tager ansvar for din online tilstedeværelse løbende, ikke bare én gang. Vi er her hver måned, klar til at holde din side opdateret og professionel.
+              Med HelloWeb får du en partner der tager ansvar for din online tilstedeværelse løbende, ikke bare én gang. Jeg er her hver måned, klar til at holde din side opdateret og professionel.
             </p>
           </div>
         </div>
 
-        <div class="animate-on-scroll delay-2">
-          <div class="bg-dark rounded-3xl p-8 md:p-10 relative overflow-hidden dot-pattern">
-            <div class="absolute -top-8 -right-8 w-40 h-40 bg-accent/15 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
-            <p class="font-mono text-[11px] tracking-label uppercase text-white/40 mb-5">Vores mission</p>
-            <p class="font-display text-2xl md:text-3xl text-white leading-[1.2] relative z-10">
-              "At hjælpe små virksomheder med løbende, at få flere kunder gennem en simpel hjemmeside, hvor vi tager os af det hele."
-            </p>
-            <div class="mt-6 w-12 h-1 rounded-full bg-accent"></div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4 mt-4">
-            <div class="bg-gray-50 rounded-2xl p-5 shadow-card border border-dark/5 text-center">
-              <p class="font-display text-3xl text-primary">100%</p>
-              <p class="text-dark/50 text-xs mt-1 font-medium">Fast månedlig pris</p>
-            </div>
-            <div class="bg-gray-50 rounded-2xl p-5 shadow-card border border-dark/5 text-center">
-              <p class="font-display text-3xl text-primary">&lt; 24t</p>
-              <p class="text-dark/50 text-xs mt-1 font-medium">Svartid på beskeder</p>
-            </div>
-          </div>
+        <div class="animate-on-scroll delay-2 flex items-center justify-center">
+          <Image
+            src={meImage}
+            alt="Paksawat – grundlægger af HelloWeb"
+            class="rounded-2xl shadow-card w-auto"
+            style="max-width: 260px; max-height: 360px; object-fit: contain;"
+          />
         </div>
 
       </div>
@@ -96,9 +85,9 @@ const values = [
   <section class="section-padding bg-dark dot-pattern">
     <div class="container-tight">
       <div class="text-center mb-14 animate-on-scroll">
-        <SectionLabel text="Vores værdier" light />
+        <SectionLabel text="Mine værdier" light />
         <h2 class="font-display text-4xl md:text-5xl text-white leading-[1.1]">
-          Det vi tror på
+          Det jeg tror på
         </h2>
       </div>
 
@@ -117,29 +106,55 @@ const values = [
   <!-- Why us section -->
   <section class="section-padding bg-white relative overflow-hidden">
     <div class="container-tight relative">
-      <div class="max-w-2xl animate-on-scroll">
-        <SectionLabel text="Hvorfor HelloWeb" />
-        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] mb-8">
-          Ikke et bureau.<br />
-          <span class="text-primary">En partner.</span>
-        </h2>
-        <div class="space-y-5 text-dark/60 leading-relaxed">
-          <p>
-            Traditionelle webdesign-bureauer leverer en hjemmeside og forsvinder. Prisen er høj, processen er lang, og du er på egen hånd bagefter.
-          </p>
-          <p>
-            HelloWeb er bygget anderledes. Vi er her hver måned – parat til at opdatere, forbedre og støtte dig. Vi er ikke interesserede i at sælge dig noget du ikke har brug for.
-          </p>
-          <p>
-            Vi holder tingene enkle, ærlige og tilgængelige. Fordi det er den slags service vi selv ville ønske at have.
-          </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <div class="animate-on-scroll">
+          <SectionLabel text="Hvorfor HelloWeb" />
+          <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] mb-8">
+            Ikke et bureau.<br />
+            <span class="text-primary">En partner.</span>
+          </h2>
+          <div class="space-y-5 text-dark/60 leading-relaxed">
+            <p>
+              Traditionelle webdesign-bureauer leverer en hjemmeside og forsvinder. Prisen er høj, processen er lang, og du er på egen hånd bagefter.
+            </p>
+            <p>
+              HelloWeb er bygget anderledes. Jeg er her hver måned – parat til at opdatere, forbedre og støtte dig. Jeg er ikke interesseret i at sælge dig noget du ikke har brug for.
+            </p>
+            <p>
+              Jeg holder tingene enkle, ærlige og tilgængelige. Fordi det er den slags service jeg selv ville ønske at have.
+            </p>
+          </div>
+          <div class="mt-10">
+            <Button href="/kontakt" variant="primary" size="md">
+              Lad mig høre om din forretning
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </Button>
+          </div>
         </div>
-        <div class="mt-10">
-          <Button href="/kontakt" variant="primary" size="md">
-            Lad os tale om din forretning
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </Button>
+
+        <div class="animate-on-scroll delay-2">
+          <div class="bg-dark rounded-3xl p-8 md:p-10 relative overflow-hidden dot-pattern">
+            <div class="absolute -top-8 -right-8 w-40 h-40 bg-accent/15 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+            <p class="font-mono text-[11px] tracking-label uppercase text-white/40 mb-5">Min mission</p>
+            <p class="font-display text-2xl md:text-3xl text-white leading-[1.2] relative z-10">
+              "At hjælpe små virksomheder med løbende, at få flere kunder gennem en simpel hjemmeside, hvor jeg tager mig af det hele."
+            </p>
+            <div class="mt-6 w-12 h-1 rounded-full bg-accent"></div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="bg-gray-50 rounded-2xl p-5 shadow-card border border-dark/5 text-center">
+              <p class="font-display text-3xl text-primary">100%</p>
+              <p class="text-dark/50 text-xs mt-1 font-medium">Fast månedlig pris</p>
+            </div>
+            <div class="bg-gray-50 rounded-2xl p-5 shadow-card border border-dark/5 text-center">
+              <p class="font-display text-3xl text-primary">&lt; 24t</p>
+              <p class="text-dark/50 text-xs mt-1 font-weight">Svartid på beskeder</p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>

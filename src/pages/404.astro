@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<BaseLayout
+  title="404 – Siden findes ikke · HelloWeb"
+  description="Siden du leder efter findes ikke."
+>
+  <section class="min-h-screen bg-dark grid-pattern flex items-center justify-center relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+    <div class="container-tight relative text-center py-24">
+      <p class="font-display font-extrabold text-[8rem] sm:text-[11rem] leading-none text-white/5 select-none -mb-8">
+        404
+      </p>
+
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-white leading-[1.1] tracking-[-0.02em] mb-4 relative">
+        Siden findes ikke
+      </h1>
+
+      <p class="text-white/50 text-lg leading-relaxed mb-10 max-w-md mx-auto">
+        Den side du leder efter eksisterer ikke eller er blevet flyttet.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <Button href="/" variant="accent" size="lg">
+          Gå til forsiden
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </Button>
+        <Button href="/kontakt" variant="ghost" size="lg" class="text-white border-white/15 hover:border-white/30 before:bg-white/6">
+          Kontakt os
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
