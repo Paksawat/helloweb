@@ -65,15 +65,15 @@ import Button from '../components/ui/Button.astro';
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="name" class="block text-xs font-medium text-white mb-1.5 font-mono tracking-label uppercase">Navn</label>
-                  <input type="text" id="name" name="name" required placeholder="Gerne med efternavn" data-fs-field
-                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 aria-[invalid]:border-red-400/60" />
-                  <span data-fs-error="name" class="mt-1 text-xs text-red-400 hidden"></span>
+                  <input type="text" id="name" name="name" required placeholder="Gerne med efternavn"
+                    class="input-field w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200" />
+                  <p class="field-error mt-1.5 text-xs text-red-400 hidden"></p>
                 </div>
                 <div>
                   <label for="email" class="block text-xs font-medium text-white mb-1.5 font-mono tracking-label uppercase">Email</label>
-                  <input type="email" id="email" name="email" required placeholder="din@email.dk" data-fs-field
-                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 aria-[invalid]:border-red-400/60" />
-                  <span data-fs-error="email" class="mt-1 text-xs text-red-400 hidden"></span>
+                  <input type="email" id="email" name="email" required placeholder="din@email.dk"
+                    class="input-field w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200" />
+                  <p class="field-error mt-1.5 text-xs text-red-400 hidden"></p>
                 </div>
               </div>
 
@@ -93,29 +93,33 @@ import Button from '../components/ui/Button.astro';
 
               <div>
                 <label for="message" class="block text-xs font-medium text-white mb-1.5 font-mono tracking-label uppercase">Besked</label>
-                <textarea id="message" name="message" rows="4" required data-fs-field
+                <textarea id="message" name="message" rows="4" required
                   placeholder="Fortæl os lidt om hvad du har brug for, eller stil et spørgsmål..."
-                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 resize-none aria-[invalid]:border-red-400/60"
+                  class="input-field w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all duration-200 resize-none"
                 ></textarea>
-                <span data-fs-error="message" class="mt-1 text-xs text-red-400 hidden"></span>
+                <p class="field-error mt-1.5 text-xs text-red-400 hidden"></p>
               </div>
 
-              <Button type="submit" size="lg" class="w-full justify-center" data-fs-submit-btn>
-                Send besked
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </Button>
+              <button id="submit-btn" type="submit"
+                class="group relative overflow-hidden isolate before:content-[''] before:absolute before:inset-0 before:-z-10 before:-translate-x-full hover:before:translate-x-0 before:transition-transform before:duration-300 before:ease-out inline-flex items-center justify-center gap-2 font-body font-semibold rounded-full transition-all duration-200 leading-none [&>svg]:transition-transform [&>svg]:duration-200 [&:hover>svg]:translate-x-1 bg-primary text-white shadow-primary-sm hover:shadow-primary-md active:scale-[0.97] before:bg-[#483298] px-8 py-4 text-base w-full disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100">
+                <span id="btn-label">Send besked</span>
+                <svg id="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg id="btn-spinner" class="hidden animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" /></svg>
+                <svg id="btn-check" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </button>
 
-              <div data-fs-error class="hidden text-center text-xs text-red-400">Noget gik galt. Prøv igen eller skriv til kontakt@helloweb.dk.</div>
-              <p class="text-center text-xs text-white/60">Vi svarer inden for ét arbejdsdøgn. Ingen spam, aldrig.</p>
+              <div id="form-error" class="hidden items-start gap-3 bg-red-500/10 border border-red-400/20 rounded-xl px-4 py-3">
+                <svg class="flex-shrink-0 text-red-400 mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p id="form-error-text" class="text-xs text-red-400 leading-relaxed">Noget gik galt. Prøv igen eller skriv til kontakt@helloweb.dk.</p>
+              </div>
+
+              <div id="form-success" class="hidden items-start gap-3 bg-accent/10 border border-accent/20 rounded-xl px-4 py-3">
+                <svg class="flex-shrink-0 text-accent mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <p class="text-xs text-accent leading-relaxed">Besked sendt! Vi vender tilbage inden for ét arbejdsdøgn.</p>
+              </div>
+
+              <p class="text-center text-xs text-white/40">Vi svarer inden for ét arbejdsdøgn. Ingen spam, aldrig.</p>
             </form>
-
-            <div data-fs-success style="display:none" class="text-center py-8">
-              <div class="w-14 h-14 rounded-full bg-accent/15 flex items-center justify-center mx-auto mb-5">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <h3 class="font-display text-xl text-white mb-2">Besked sendt!</h3>
-              <p class="text-white/55 text-sm">Tak — vi vender tilbage inden for ét arbejdsdøgn.</p>
-            </div>
           </div>
         </div>
 
@@ -124,13 +128,155 @@ import Button from '../components/ui/Button.astro';
   </section>
 
 <script>
-  declare global {
-    interface Window {
-      formspree: ((...args: unknown[]) => void) & { q?: unknown[] };
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const btnLabel = document.getElementById('btn-label') as HTMLElement;
+  const btnArrow = document.getElementById('btn-arrow') as HTMLElement;
+  const btnSpinner = document.getElementById('btn-spinner') as HTMLElement;
+  const btnCheck = document.getElementById('btn-check') as HTMLElement;
+  const formError = document.getElementById('form-error') as HTMLElement;
+  const formErrorText = document.getElementById('form-error-text') as HTMLElement;
+  const formSuccess = document.getElementById('form-success') as HTMLElement;
+
+  const inputClass = 'w-full rounded-xl border bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 transition-all duration-200 resize-none';
+
+  function setLoading(loading: boolean) {
+    submitBtn.disabled = loading;
+    btnLabel.textContent = loading ? 'Sender…' : 'Send besked';
+    btnArrow.classList.toggle('hidden', loading);
+    btnSpinner.classList.toggle('hidden', !loading);
+    btnCheck.classList.add('hidden');
+  }
+
+  function setSent() {
+    submitBtn.disabled = true;
+    btnLabel.textContent = 'Sendt!';
+    btnArrow.classList.add('hidden');
+    btnSpinner.classList.add('hidden');
+    btnCheck.classList.remove('hidden');
+    submitBtn.classList.remove('bg-primary', 'before:bg-[#483298]', 'shadow-primary-sm', 'hover:shadow-primary-md');
+    submitBtn.classList.add('bg-accent/20', 'text-accent', 'border', 'border-accent/30', 'cursor-default');
+  }
+
+  function clearFieldErrors() {
+    form.querySelectorAll('.input-field').forEach(el => {
+      el.classList.remove('border-red-400/60', 'focus:ring-red-400/30');
+      el.classList.add('border-white/10', 'focus:ring-primary/40', 'focus:border-primary/50');
+    });
+    form.querySelectorAll('.field-error').forEach(el => {
+      el.classList.add('hidden');
+      el.textContent = '';
+    });
+  }
+
+  function showFieldError(input: Element, message: string) {
+    input.classList.remove('border-white/10', 'focus:ring-primary/40', 'focus:border-primary/50');
+    input.classList.add('border-red-400/60', 'focus:ring-red-400/30');
+    const errorEl = input.parentElement?.querySelector('.field-error');
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
     }
   }
-  window.formspree = window.formspree || function(...args) { (window.formspree.q = window.formspree.q || []).push(args); };
-  window.formspree('initForm', { formElement: '#contact-form', formId: 'myklowvk' });
+
+  function validateForm(): boolean {
+    clearFieldErrors();
+    let valid = true;
+
+    const name = form.querySelector('#name') as HTMLInputElement;
+    const email = form.querySelector('#email') as HTMLInputElement;
+    const message = form.querySelector('#message') as HTMLTextAreaElement;
+
+    if (!name.value.trim()) {
+      showFieldError(name, 'Skriv venligst dit navn.');
+      valid = false;
+    }
+    if (!email.value.trim()) {
+      showFieldError(email, 'Skriv venligst din email.');
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      showFieldError(email, 'Det ser ikke ud som en gyldig email.');
+      valid = false;
+    }
+    if (!message.value.trim()) {
+      showFieldError(message, 'Skriv venligst en besked.');
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formError.classList.add('hidden');
+    formError.classList.remove('flex');
+    formSuccess.classList.add('hidden');
+    formSuccess.classList.remove('flex');
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok) {
+        formSuccess.classList.remove('hidden');
+        formSuccess.classList.add('flex');
+        form.reset();
+        clearFieldErrors();
+        setSent();
+        setTimeout(() => {
+          setLoading(false);
+          submitBtn.disabled = false;
+          submitBtn.classList.add('bg-primary', 'before:bg-[#483298]', 'shadow-primary-sm', 'hover:shadow-primary-md');
+          submitBtn.classList.remove('bg-accent/20', 'text-accent', 'border', 'border-accent/30', 'cursor-default');
+        }, 3000);
+        setTimeout(() => {
+          formSuccess.classList.add('hidden');
+          formSuccess.classList.remove('flex');
+        }, 10000);
+      } else {
+        console.error('Form error:', data?.errors);
+        formErrorText.textContent = 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til kontakt@helloweb.dk.';
+        formError.classList.remove('hidden');
+        formError.classList.add('flex');
+        formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setLoading(false);
+        setTimeout(() => {
+          formError.classList.add('hidden');
+          formError.classList.remove('flex');
+        }, 10000);
+      }
+    } catch {
+      formErrorText.textContent = 'Beskeden kunne ikke sendes. Prøv igen, eller skriv direkte til kontakt@helloweb.dk.';
+      formError.classList.remove('hidden');
+      formError.classList.add('flex');
+      setLoading(false);
+      setTimeout(() => {
+        formError.classList.add('hidden');
+        formError.classList.remove('flex');
+      }, 10000);
+    }
+  });
+
+  // Clear field error on input
+  form.querySelectorAll('.input-field').forEach(el => {
+    el.addEventListener('input', () => {
+      el.classList.remove('border-red-400/60', 'focus:ring-red-400/30');
+      el.classList.add('border-white/10', 'focus:ring-primary/40', 'focus:border-primary/50');
+      const errorEl = el.parentElement?.querySelector('.field-error');
+      if (errorEl) {
+        errorEl.classList.add('hidden');
+        errorEl.textContent = '';
+      }
+    });
+  });
 </script>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </BaseLayout>
