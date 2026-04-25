@@ -1,0 +1,1 @@
+import"./hoisted.kJBJfzdI.js";window.formspree=window.formspree||function(...o){(window.formspree.q=window.formspree.q||[]).push(o)};window.formspree("initForm",{formElement:"#contact-form",formId:"myklowvk"});
