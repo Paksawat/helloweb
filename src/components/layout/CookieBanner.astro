@@ -1,0 +1,224 @@
+---
+---
+
+<!-- Cookie banner markup -->
+<div id="cookie-banner" role="dialog" aria-label="Cookiesamtykke" aria-modal="false" hidden>
+  <div id="cookie-banner-inner">
+    <div id="cookie-banner-text">
+      <p>
+        Vi bruger cookies til at forbedre din oplevelse og analysere vores trafik. Læs mere i vores
+        <a href="/privatlivspolitik">privatlivspolitik</a>.
+      </p>
+    </div>
+    <div id="cookie-banner-actions">
+      <button id="cookie-decline" type="button">Kun nødvendige</button>
+      <button id="cookie-accept" type="button">Accepter alle</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating re-open trigger -->
+<button
+  id="cookie-settings-btn"
+  type="button"
+  aria-label="Cookieindstillinger"
+  title="Cookieindstillinger"
+  hidden
+>
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <!-- cookie body -->
+    <circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.75"></circle>
+    <!-- bite -->
+    <path d="M17.5 6.5 Q21 7 21.5 10.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" fill="none"></path>
+    <!-- chips -->
+    <circle cx="9" cy="10" r="1.25" fill="currentColor"></circle>
+    <circle cx="14" cy="9"  r="1"    fill="currentColor"></circle>
+    <circle cx="15" cy="14.5" r="1.25" fill="currentColor"></circle>
+    <circle cx="10" cy="15" r="1"    fill="currentColor"></circle>
+    <circle cx="11.5" cy="12" r="0.75" fill="currentColor"></circle>
+  </svg>
+</button>
+
+<script is:inline>
+  (function () {
+    var STORAGE_KEY = 'hw_cookie_consent';
+    var banner      = document.getElementById('cookie-banner');
+    var settingsBtn = document.getElementById('cookie-settings-btn');
+    var acceptBtn   = document.getElementById('cookie-accept');
+    var declineBtn  = document.getElementById('cookie-decline');
+
+    // Uses the gtag() defined in BaseLayout <head> — already initialised before GTM loaded.
+    function updateConsent(granted) {
+      var state = granted ? 'granted' : 'denied';
+      gtag('consent', 'update', {
+        ad_storage:         state,
+        analytics_storage:  state,
+        ad_user_data:       state,
+        ad_personalization: state,
+      });
+    }
+
+    function hideBanner() {
+      banner.hidden = true;
+      settingsBtn.hidden = false;
+    }
+
+    function showBanner() {
+      banner.hidden = false;
+      settingsBtn.hidden = true;
+    }
+
+    // On load: consent defaults were already sent from <head> before GTM ran,
+    // so only update UI — no second consent push needed for returning visitors.
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'accepted' || stored === 'declined') {
+      hideBanner();
+    } else {
+      showBanner();
+    }
+
+    acceptBtn.addEventListener('click', function () {
+      localStorage.setItem(STORAGE_KEY, 'accepted');
+      updateConsent(true);
+      hideBanner();
+    });
+
+    declineBtn.addEventListener('click', function () {
+      localStorage.setItem(STORAGE_KEY, 'declined');
+      updateConsent(false);
+      hideBanner();
+    });
+
+    // Re-opening settings clears stored choice and shows the banner again.
+    // GTM will continue with the last consent state until the user re-chooses.
+    settingsBtn.addEventListener('click', function () {
+      localStorage.removeItem(STORAGE_KEY);
+      showBanner();
+    });
+  })();
+</script>
+
+<style is:global>
+  /* ── Banner ── */
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #f8f9fa;
+    border-top: 1px solid rgba(10, 15, 30, 0.1);
+    box-shadow: 0 -4px 24px -4px rgba(10, 15, 30, 0.08);
+    padding: 1rem 1.5rem;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  #cookie-banner-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  #cookie-banner-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #cookie-banner-text p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(10, 15, 30, 0.7);
+  }
+
+  #cookie-banner-text a {
+    color: #6d57bd;
+    text-decoration: underline;
+    text-decoration-color: rgba(109, 87, 189, 0.35);
+    transition: text-decoration-color 0.2s;
+  }
+
+  #cookie-banner-text a:hover {
+    text-decoration-color: #6d57bd;
+  }
+
+  #cookie-banner-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  #cookie-banner-actions button {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    line-height: 1;
+    white-space: nowrap;
+    transition: opacity 0.2s, transform 0.15s, border-color 0.2s, color 0.2s;
+    border: 1.5px solid transparent;
+  }
+
+  #cookie-banner-actions button:active {
+    transform: scale(0.97);
+  }
+
+  /* Accept → purple */
+  #cookie-accept {
+    background: #6d57bd;
+    color: #f8f9fa;
+    border-color: #6d57bd !important;
+  }
+
+  #cookie-accept:hover {
+    opacity: 0.88;
+  }
+
+  /* Decline → outline */
+  #cookie-decline {
+    background: transparent;
+    color: rgba(10, 15, 30, 0.6);
+    border-color: rgba(10, 15, 30, 0.18) !important;
+  }
+
+  #cookie-decline:hover {
+    border-color: rgba(10, 15, 30, 0.35) !important;
+    color: #0a0f1e;
+  }
+
+  /* ── Floating settings button ── */
+  #cookie-settings-btn {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: #f8f9fa;
+    color: rgba(10, 15, 30, 0.45);
+    border: 1px solid rgba(10, 15, 30, 0.12);
+    box-shadow: 0 2px 12px -2px rgba(10, 15, 30, 0.12);
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+
+  #cookie-settings-btn:hover {
+    color: #6d57bd;
+    box-shadow: 0 4px 20px -4px rgba(109, 87, 189, 0.25);
+    transform: scale(1.07);
+  }
+
+  #cookie-settings-btn:active {
+    transform: scale(0.95);
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import CookieBanner from '../components/layout/CookieBanner.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -23,14 +24,46 @@ const {
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
 
+    <!-- Consent Mode v2 — must run before GTM -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      (function() {
+        var stored = localStorage.getItem('hw_cookie_consent');
+        var state  = stored === 'accepted' ? 'granted' : 'denied';
+        var defaults = {
+          ad_storage:          state,
+          analytics_storage:   state,
+          ad_user_data:        state,
+          ad_personalization:  state,
+          functionality_storage: 'granted',
+          security_storage:      'granted',
+        };
+        if (!stored) defaults.wait_for_update = 500;
+        gtag('consent', 'default', defaults);
+      })();
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M2VMVSLQ');</script>
+    <!-- End Google Tag Manager -->
   </head>
 
   <body class="font-display">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2VMVSLQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+    <CookieBanner />
 
     <script>
       const observer = new IntersectionObserver(
