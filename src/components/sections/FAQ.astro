@@ -33,30 +33,30 @@ const faqs = [
 ];
 ---
 
-<section class="section-padding bg-dark relative overflow-hidden grid-pattern">
+<section class="section-padding bg-white">
 
-  <div class="container-tight relative">
+  <div class="container-tight">
 
     <div class="text-center mb-14 animate-on-scroll">
-      <SectionLabel light text="Spørgsmål & svar" />
-      <h2 class="font-display text-4xl md:text-5xl text-white leading-[1.1]">
+      <SectionLabel text="Spørgsmål & svar" />
+      <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1]">
         Ofte stillede spørgsmål
       </h2>
     </div>
 
-    <div class="max-w-2xl mx-auto divide-y divide-white/10">
+    <div class="max-w-2xl mx-auto divide-y divide-dark/10">
       {faqs.map((faq, i) => (
         <details class={`animate-on-scroll delay-${Math.min(i + 1, 4)} group py-5`}>
           <summary class="flex items-center justify-between gap-6 cursor-pointer list-none">
-            <span class="font-body font-semibold text-white text-base md:text-lg leading-snug group-open:text-accent transition-colors duration-200">
+            <span class="font-body font-semibold text-dark text-base md:text-lg leading-snug group-open:text-primary transition-colors duration-200">
               {faq.q}
             </span>
-            <span class="flex-shrink-0 w-7 h-7 rounded-full border border-white/20 flex items-center justify-center transition-transform duration-200 group-open:rotate-45">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white/50"><path d="M12 5v14M5 12h14"/></svg>
+            <span class="flex-shrink-0 w-7 h-7 rounded-full border border-dark/15 flex items-center justify-center transition-transform duration-200 group-open:rotate-45">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-dark/40"><path d="M12 5v14M5 12h14"/></svg>
             </span>
           </summary>
           <div class="faq-body overflow-hidden">
-            <p class="mt-4 pb-1 text-white/55 leading-relaxed text-[0.95rem] pr-12">
+            <p class="mt-4 pb-1 text-dark/55 leading-relaxed text-[0.95rem] pr-12">
               {faq.a}
             </p>
           </div>

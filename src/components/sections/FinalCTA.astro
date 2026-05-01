@@ -3,17 +3,22 @@ import Button from '../ui/Button.astro';
 import SectionLabel from '../ui/SectionLabel.astro';
 ---
 
-<section class="section-padding bg-dark relative overflow-hidden grid-pattern">
+<section class="section-padding bg-primary relative overflow-hidden grid-pattern">
 
   <div class="container-tight relative text-center">
     <div class="animate-on-scroll">
-      <div class="inline-flex items-center gap-2.5 mb-6">
-         <SectionLabel light text="Få din webpartner" />
+      <div class="inline-flex items-center gap-2.5 mb-6 text-[]">
+         <div class="inline-flex items-center gap-2.5 mb-5">
+  <span class={`w-4 h-px bg-[#2D1D63]`}></span>
+  <span class={`font-mono text-[11px] tracking-label uppercase font-bold text-[#2D1D63]`}>
+    Få din webpartner
+  </span>
+</div>
       </div>
 
       <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05] mb-6 max-w-3xl mx-auto">
         Klar til en hjemmeside<br />
-        der faktisk <span class="text-accent">virker?</span>
+        der faktisk <span class="text-[#2D1D63]">virker?</span>
       </h2>
 
       <p class="text-white/55 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto">
@@ -21,7 +26,7 @@ import SectionLabel from '../ui/SectionLabel.astro';
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <Button href="/kontakt" variant="accent" text-white size="lg">
+        <Button href="/kontakt" variant="special" text-white size="lg">
           Få en gratis gennemgang
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </Button>

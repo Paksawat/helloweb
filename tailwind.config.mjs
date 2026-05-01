@@ -12,6 +12,7 @@ export default {
         },
         accent: '#3EF48D',
         dark: '#0a0f1e',
+        special: '#2D1D63',
       },
       fontFamily: {
         display: ['Open Sans', 'sans-serif'],

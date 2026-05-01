@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'button'> {
   href?: string;
-  variant?: 'primary' | 'accent' | 'ghost' | 'dark';
+  variant?: 'primary' | 'accent' | 'ghost' | 'dark' | 'special';
   size?: 'sm' | 'md' | 'lg';
   class?: string;
   type?: 'button' | 'submit';
@@ -39,6 +39,7 @@ const variants = {
   accent:  'bg-accent text-dark shadow-sm hover:shadow-md active:scale-[0.97] before:bg-accent/80 before:bg-[#1DC767]',
   ghost:   'bg-transparent text-dark border-2 border-dark/15 hover:border-dark/30 active:scale-[0.97] before:bg-dark/6',
   dark:    'bg-white text-dark shadow-sm hover:shadow-md active:scale-[0.97] before:bg-dark/8',
+  special: 'bg-[#2D1D63] text-white shadow-sm hover:shadow-md active:scale-[0.97] before:bg-[#2D1D63]/80 before:bg-[#F6F6F6] before:text-[#2D1D63] hover:text-[#2D1D63] hover:before:bg-[#F6F6F6] hover:before:text-[#2D1D63]',
 };
 
 const classes = [base, sizes[size], variants[variant], className].join(' ');
