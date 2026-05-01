@@ -5,4 +5,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://helloweb.dk',
   integrations: [tailwind(), sitemap()],
+  build: {
+    inlineStylesheets: 'always',
+  },
 });
