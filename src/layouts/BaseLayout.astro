@@ -23,6 +23,8 @@ const {
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/open-sans-v44-latin-700.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/open-sans-v44-latin-regular.woff2" crossorigin />
 
     <!-- Consent Mode v2 — must run before GTM -->
     <script is:inline>
@@ -57,7 +59,7 @@ const {
     <Footer />
     <CookieBanner />
 
-    <script>
+    <script is:inline>
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
