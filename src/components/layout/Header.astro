@@ -15,6 +15,12 @@ const navLinks = [
   { href: '/kontakt', label: 'Kontakt' },
 ];
 
+const guideLinks = [
+  { href: '/guides/hvorfor-helloweb', label: 'Hvorfor HelloWeb?' },
+];
+
+const isGuidesActive = Astro.url.pathname.startsWith('/guides');
+
 const currentPath = Astro.url.pathname;
 ---
 
@@ -46,6 +52,39 @@ const currentPath = Astro.url.pathname;
             {label}
           </a>
         ))}
+
+        <!-- Guides dropdown -->
+        <div class="relative group">
+          <button
+            class={`relative font-body text-sm font-bold transition-colors duration-150 pb-0.5 flex items-center gap-1
+              after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:rounded-full after:bg-primary after:transition-transform after:duration-200 after:origin-left
+              ${isGuidesActive
+                ? 'text-primary after:scale-x-100'
+                : 'text-dark/60 hover:text-dark after:scale-x-0 hover:after:scale-x-100'
+              }`}
+            aria-haspopup="true"
+          >
+            Guides
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:rotate-180"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 z-50">
+            <div class="bg-white rounded-xl shadow-lg border border-dark/8 p-1.5 min-w-[200px]">
+              {guideLinks.map(({ href, label }) => (
+                <a
+                  href={href}
+                  class={`flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors duration-100
+                    ${currentPath === href
+                      ? 'text-primary bg-primary/5 font-semibold'
+                      : 'text-dark/65 hover:text-dark hover:bg-gray-50 font-medium'
+                    }`}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary/60 flex-shrink-0"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
       </nav>
 
       <!-- Desktop CTA -->
@@ -77,12 +116,28 @@ const currentPath = Astro.url.pathname;
         <a
           href={href}
           class={`font-body text-base font-bold transition-colors ${
-            currentPath === href ? 'text-primary ' : 'text-dark/70'
+            currentPath === href ? 'text-primary' : 'text-dark/70'
           }`}
         >
           {label}
         </a>
       ))}
+
+      <!-- Guides section -->
+      <div class="border-t border-dark/8 pt-4 space-y-2">
+        <p class="text-[10px] font-mono tracking-widest uppercase text-dark/35">Guides</p>
+        {guideLinks.map(({ href, label }) => (
+          <a
+            href={href}
+            class={`flex items-center gap-2 font-body text-base font-bold transition-colors ${
+              currentPath === href ? 'text-primary' : 'text-dark/70'
+            }`}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+
       <div class="pt-2">
         <Button href="/kontakt" size="sm" class="w-full justify-center">
           Få en gratis gennemgang

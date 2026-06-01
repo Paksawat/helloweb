@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionLabel from '../../components/ui/SectionLabel.astro';
+import Button from '../../components/ui/Button.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+
+const stats = [
+  { value: '75%', label: 'af forbrugere vurderer virksomhedens troværdighed ud fra hjemmesiden' },
+  { value: '3 sek', label: 'Er det der, inden en besøgende forlader en langsom side' },
+  { value: '50%+', label: 'Af lokale søgninger sker på mobil — er din side klar til det?' },
+];
+
+const comparison = [
+  {
+    type: 'Gør-det-selv',
+    name: 'Wix & Squarespace',
+    recommended: false,
+    pros: ['Nem at komme i gang'],
+    cons: [
+      'Du laver og vedligeholder den selv',
+      'Ingen at ringe til, når noget driller',
+      'Tager lang tid fra din hverdag',
+      'Kan ende med at se amatøragtig ud',
+    ],
+  },
+  {
+    type: 'Teknisk & kompliceret',
+    name: 'WordPress (selv-bygget)',
+    recommended: false,
+    pros: ['Fleksibelt og populært'],
+    cons: [
+      'Kræver teknisk viden at drive',
+      'Plugins og opdateringer er dit ansvar',
+      'Sikkerhedshuller, hvis ikke vedligeholdt',
+      'Du er din egen it-afdeling',
+    ],
+  },
+  {
+    type: 'Fast samarbejdspartner',
+    name: 'HelloWeb',
+    recommended: true,
+    pros: [
+      'Vi bygger og driver siden for dig',
+      'Fast månedlig pris — ingen overraskelser',
+      'En person du kan ringe til',
+      'Hosting, drift og ændringer inkluderet',
+      'Du fokuserer på din forretning',
+    ],
+    cons: [],
+  },
+];
+
+const features = [
+  { title: 'Klar på 1–3 dage', text: 'Vi leverer hurtigt. Ingen lange projektforløb eller uventede forsinkelser.' },
+  { title: 'Fast månedlig pris', text: 'Fra 1.500 kr/md. Ingen opstartsgebyr. Alt inkluderet. Ingen skjulte regninger.' },
+  { title: 'Personlig kontakt', text: 'Du ringer eller skriver, og vi tager os af det. Ikke et call center — en rigtig person.' },
+  { title: 'Løbende vedligeholdelse', text: 'Opdateringer, hosting, sikkerhed og smårettelser — vi holder din side i orden.' },
+  { title: 'Ser godt ud på alle skærme', text: 'Din hjemmeside fungerer og ser professionel ud — uanset om kunden er på mobil eller pc.' },
+  { title: 'Troværdighed der sælger', text: 'En professionel hjemmeside signalerer seriøsitet og får kunder til at vælge dig.' },
+];
+---
+
+<BaseLayout
+  title="Hvorfor HelloWeb? – Guide til din virksomhed"
+  description="Din hjemmeside er din vigtigste salgsmedarbejder. Lær hvorfor det betaler sig at investere i en professionel hjemmeside — og hvem der passer på den."
+>
+
+  <!-- Hero -->
+  <section class="section-padding bg-dark relative overflow-hidden dot-pattern">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/3" aria-hidden="true"></div>
+    <div class="container-tight relative">
+      <div class="max-w-3xl">
+        <SectionLabel text="Guide til din virksomhed" light />
+        <h1 class="font-display text-[2.4rem] sm:text-[3rem] md:text-[3.75rem] leading-[1.05] tracking-[-0.02em] text-white mb-6">
+          Hvorfor din hjemmeside er mere værd <span class="text-accent">end du tror</span>
+        </h1>
+        <p class="text-xl text-white/60 leading-relaxed max-w-2xl">
+          Din hjemmeside er din vigtigste salgsmedarbejder. Den arbejder døgnet rundt, kræver ikke ferie og møder dine kunder, før du gør det. Men hvad sker der, når den er langsom, forældet eller simpelthen ikke findes? Og hvem tager egentlig ansvar for den?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section-padding bg-white">
+    <div class="container-tight">
+      <div class="text-center mb-14 animate-on-scroll">
+        <SectionLabel text="Hvad koster det at ignorere det?" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1]">
+          Hvad en dårlig hjemmeside<br />koster din virksomhed
+        </h2>
+        <p class="mt-5 text-dark/70 max-w-2xl mx-auto leading-relaxed">
+          Kunderne googler dig, inden de ringer. Hvad de finder — eller ikke finder — afgør, om de overhovedet kontakter dig.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+        {stats.map((stat, i) => (
+          <div class={`animate-on-scroll delay-${i + 1} bg-gray-50 rounded-3xl p-8 border border-dark/5 text-center`}>
+            <p class="font-display text-5xl font-extrabold text-primary mb-3">{stat.value}</p>
+            <p class="text-dark/70 text-sm leading-relaxed">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="max-w-2xl mx-auto space-y-5 text-dark/60 leading-relaxed animate-on-scroll">
+        <p>En hjemmeside der ser forældet ud, loader langsomt eller ser rodet ud på mobil, sender et klart signal: vi prioriterer ikke detaljer. Det er ikke det signal, du ønsker at sende.</p>
+        <p class="text-dark font-semibold">En god hjemmeside er ikke en udgift — det er en investering. Spørgsmålet er ikke om du har råd til den. Det er om du har råd til at klare dig uden.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-tight">
+      <div class="text-center mb-14 animate-on-scroll">
+        <SectionLabel text="Sammenligning" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1]">
+          Wix, WordPress og HelloWeb
+        </h2>
+        <p class="mt-5 text-dark/70 max-w-2xl mx-auto leading-relaxed">
+          Mange virksomheder forsøger selv at løse det med en af de store platforme. Der er noget, de fleste ikke fortæller dig på forhånd.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {comparison.map((col, i) => (
+          <div class={`animate-on-scroll delay-${i + 1} relative rounded-3xl p-7 border flex flex-col ${
+            col.recommended
+              ? 'bg-dark border-dark shadow-primary-lg'
+              : 'bg-white border-dark/8'
+          }`}>
+            {col.recommended && (
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">Anbefalet</span>
+              </div>
+            )}
+            <p class={`text-xs font-mono tracking-label uppercase mb-2 ${col.recommended ? 'text-white/60' : 'text-dark/60'}`}>
+              {col.type}
+            </p>
+            <h3 class={`font-display text-xl font-bold mb-5 ${col.recommended ? 'text-white' : 'text-dark'}`}>
+              {col.name}
+            </h3>
+            <ul class="space-y-3 flex-1">
+              {col.pros.map(item => (
+                <li class="flex items-start gap-2.5 text-sm">
+                  <span class={`mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${col.recommended ? 'bg-accent/25' : 'bg-primary/10'}`}>
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class={col.recommended ? 'text-accent' : 'text-primary'}><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class={col.recommended ? 'text-white/80' : 'text-dark/65'}>{item}</span>
+                </li>
+              ))}
+              {col.cons.map(item => (
+                <li class="flex items-start gap-2.5 text-sm">
+                  <span class="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full bg-red-100 flex items-center justify-center">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="text-red-400"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </span>
+                  <span class={col.recommended ? 'text-white/75' : 'text-dark/65'}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-10 text-center text-dark/70 text-sm max-w-xl mx-auto animate-on-scroll leading-relaxed">
+        Pointen er ikke at Wix eller WordPress er dårlige platforme. Pointen er, at de kræver, at du bruger din tid og energi på dem. Og det er tid, du sjældent har, når du driver en rigtig virksomhed.
+      </p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section-padding bg-white">
+    <div class="container-tight">
+      <div class="text-center mb-14 animate-on-scroll">
+        <SectionLabel text="HelloWeb" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1]">
+          Hvad HelloWeb gør anderledes
+        </h2>
+        <p class="mt-5 text-dark/70 max-w-2xl mx-auto leading-relaxed">
+          Vi er hverken et dyrt bureau eller en freelancer, du skal jage. Vi er din faste webansvarlige — en person, der tager sig af alt det tekniske, så du kan koncentrere dig om det, du er god til.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {features.map((f, i) => (
+          <div class={`animate-on-scroll delay-${Math.min(i + 1, 4)} bg-gray-50 rounded-3xl p-7 border border-dark/5`}>
+            <div class="w-10 h-1 rounded-full bg-primary mb-5"></div>
+            <h3 class="font-body font-semibold text-lg text-dark mb-2">{f.title}</h3>
+            <p class="text-dark/70 text-sm leading-relaxed">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Maintenance -->
+  <section class="section-padding bg-dark dot-pattern">
+    <div class="container-tight">
+      <div class="max-w-2xl mx-auto text-center animate-on-scroll">
+        <SectionLabel text="Det glemte kapitel" light />
+        <h2 class="font-display text-4xl md:text-5xl text-white leading-[1.1] mb-8">
+          Vedligeholdelse
+        </h2>
+        <div class="space-y-5 text-white/60 leading-relaxed">
+          <p>En hjemmeside er ikke et projekt, der er "færdigt" den dag den går live. Den skal opdateres, holdes sikker og afspejle din virksomhed, som den ser ud i dag — ikke for tre år siden.</p>
+          <p>Åbningstider, priser, nye ydelser, et billede fra den seneste opgave — det er de ting, der gør, at kunder stoler på, at du faktisk stadig er i gang. En forældet side er næsten værre end ingen side.</p>
+          <p class="text-white/90 font-semibold">Hos HelloWeb er vedligeholdelse ikke et tilvalg — det er en del af aftalen. Vi holder øje med din side, så du ikke behøver.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who is it for -->
+  <section class="section-padding bg-white">
+    <div class="container-tight">
+      <div class="max-w-2xl mx-auto text-center animate-on-scroll">
+        <SectionLabel text="Er det dig?" />
+        <h2 class="font-display text-4xl md:text-5xl text-dark leading-[1.1] mb-6">
+          Hvem passer HelloWeb til?
+        </h2>
+        <div class="space-y-5 text-dark/60 leading-relaxed mb-10">
+          <p>Vores kunder er typisk håndværkere, klinikker, frisører og andre servicevirksomheder, der ikke har tid eller lyst til at rode med teknologi. De vil bare have noget, der virker — og en at ringe til, når de har brug for en ændring.</p>
+          <p>Hvis det lyder som dig, er du det rigtige sted.</p>
+          <p class="text-dark font-semibold">Vi laver et gratis udkast til din hjemmeside — ingen forpligtelse, ingen snak om pris, før du har set det.</p>
+        </div>
+        <Button href="/kontakt" size="lg">
+          Få et gratis udkast
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</BaseLayout>
