@@ -55,8 +55,8 @@ const faqs = [
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-dark/40"><path d="M12 5v14M5 12h14"/></svg>
             </span>
           </summary>
-          <div class="faq-body overflow-hidden">
-            <p class="mt-4 pb-1 text-dark/55 leading-relaxed text-[0.95rem] pr-12">
+          <div class="faq-body overflow-hidden" style="display:grid;grid-template-rows:0fr;transition:grid-template-rows 300ms cubic-bezier(0.4,0,0.2,1)">
+            <p class="mt-4 pb-1 text-dark/55 leading-relaxed text-[0.95rem] pr-12" style="min-height:0;overflow:hidden">
               {faq.a}
             </p>
           </div>
@@ -76,17 +76,15 @@ const faqs = [
       e.preventDefault();
 
       if (details.open) {
-        const anim = body.animate(
-          [{ height: body.scrollHeight + 'px' }, { height: '0px' }],
-          { duration: 260, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
-        );
-        anim.onfinish = () => details.removeAttribute('open');
+        body.style.gridTemplateRows = '0fr';
+        body.addEventListener('transitionend', () => {
+          details.removeAttribute('open');
+        }, { once: true });
       } else {
         details.setAttribute('open', '');
-        body.animate(
-          [{ height: '0px' }, { height: body.scrollHeight + 'px' }],
-          { duration: 300, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
-        );
+        requestAnimationFrame(() => {
+          body.style.gridTemplateRows = '1fr';
+        });
       }
     });
   });
