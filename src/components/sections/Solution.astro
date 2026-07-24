@@ -4,8 +4,8 @@ import Button from '../ui/Button.astro';
 
 const points = [
   'Du betaler ét fast beløb om måneden',
-  'Vi bygger, vedligeholder og forbedrer løbende',
-  'Du behøver ingen store engangsbetalinger',
+  'Jeg bygger, vedligeholder og forbedrer løbende',
+  'Ingen overraskelser – du ved hvad du betaler',
   'Professionelt design inkluderet fra dag ét',
 ];
 
@@ -51,7 +51,7 @@ const included = [
         </ul>
 
         <Button href="/kontakt" size="md">
-          Hør mere – lad os tage en snak
+          Hør mere – lad mig tage en snak
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </Button>
       </div>
@@ -74,10 +74,10 @@ const included = [
             <h3 class="font-display text-2xl text-dark mb-4">Alt inkluderet</h3>
 
             <div class="flex items-baseline gap-3 mb-1">
-              <span class="font-display text-4xl font-extrabold text-dark">1.500 kr</span>
+              <span class="font-display text-4xl font-extrabold text-dark">1.200 kr</span>
               <span class="text-dark/50 text-sm">/ md</span>
             </div>
-            <p class="text-dark/45 text-sm">0 kr opstart</p>
+            <p class="text-dark/45 text-sm">2.500 kr opstart</p>
           </div>
 
           <ul class="space-y-3 mb-6">
@@ -89,23 +89,19 @@ const included = [
             ))}
           </ul>
 
-          <p class="text-dark/40 text-xs font-semibold">Minimumsperiode 6 måneder</p>
+          <p class="text-dark/40 text-xs font-semibold">Minimumsperiode 3 måneder</p>
         </div>
 
         <!-- Alternative -->
         <div class="rounded-2xl border border-dark/10 bg-white p-6 relative">
           <p class="font-mono font-bold text-[11px] tracking-label uppercase text-dark/40 mb-3 text-primary">Alternativt</p>
-
-          <div class="flex items-baseline gap-3 mb-1">
-            <span class="font-display text-3xl font-extrabold text-dark">1.000 kr</span>
-            <span class="text-dark/50 text-sm">/ md</span>
-          </div>
-          <p class="text-dark/45 text-sm mb-3">7.000 kr opstart</p>
-          <p class="flex items-center gap-3 mb-6">
-                <svg class="flex-shrink-0 text-primary" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span class="text-dark/70 text-sm">Alt inkluderet fra den faste løsning</span>
+          <p class="text-dark/70 text-sm leading-relaxed mb-4">
+            Har du andre behov eller en anden situation? Kontakt mig endelig — så finder vi ud af noget der passer til dig.
           </p>
-          <p class="text-dark/40 text-xs font-semibold">Ingen minimumsperiode</p>
+          <a href="/kontakt" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline">
+            Tag en uforpligtende snak
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
 
         <p class="text-dark/40 text-xs font-semibold text-center">Alle priser er ekskl. moms</p>
