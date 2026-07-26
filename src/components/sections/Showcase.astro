@@ -4,6 +4,64 @@ import showcase1 from '../../assets/showcase-1.webp';
 import showcase2 from '../../assets/showcase-2.webp';
 import { Image } from 'astro:assets';
 
+const xplanSvg = `<svg viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+  <rect width="800" height="500" fill="#07070F"/>
+  <defs>
+    <pattern id="xgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.06"/>
+    </pattern>
+    <radialGradient id="xglow1" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#07070F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="xglow2" cx="75%" cy="70%" r="40%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#07070F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#xgrid)"/>
+  <ellipse cx="400" cy="200" rx="380" ry="220" fill="url(#xglow1)"/>
+  <ellipse cx="620" cy="360" rx="200" ry="150" fill="url(#xglow2)"/>
+  <rect width="800" height="52" fill="#07070F" opacity="0.9"/>
+  <rect width="800" height="1" y="52" fill="#ffffff" opacity="0.08"/>
+  <text x="32" y="33" fill="white" font-size="18" font-weight="800" font-family="sans-serif" letter-spacing="2">XPL</text>
+  <rect x="72" y="20" width="2" height="16" fill="#7C3AED" opacity="0.8"/>
+  <text x="80" y="33" fill="#aaa" font-size="11" font-family="sans-serif">LAN 2026</text>
+  <text x="490" y="32" fill="#ccc" font-size="11" font-family="sans-serif">Program</text>
+  <text x="558" y="32" fill="#ccc" font-size="11" font-family="sans-serif">Om</text>
+  <text x="598" y="32" fill="#ccc" font-size="11" font-family="sans-serif">FAQ</text>
+  <rect x="645" y="15" width="120" height="28" rx="14" fill="#7C3AED"/>
+  <text x="705" y="33" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="sans-serif">Køb billetter</text>
+  <text x="400" y="112" text-anchor="middle" fill="#06B6D4" font-size="10" font-family="monospace" letter-spacing="3" opacity="0.9">EXPERIENCE ESPORT</text>
+  <text x="400" y="175" text-anchor="middle" fill="white" font-size="62" font-weight="900" font-family="sans-serif" letter-spacing="-1">XP-LAN</text>
+  <text x="400" y="205" text-anchor="middle" fill="#7C3AED" font-size="14" font-weight="700" font-family="sans-serif" letter-spacing="6">2026</text>
+  <text x="400" y="238" text-anchor="middle" fill="#ffffff" font-size="13" font-family="sans-serif" opacity="0.5">Danmarks Næste Store Gaming Event</text>
+  <rect x="222" y="264" width="64" height="52" rx="7" fill="#0f0f1a" stroke="#7C3AED" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="254" y="293" text-anchor="middle" fill="white" font-size="20" font-weight="800" font-family="monospace">42</text>
+  <text x="254" y="308" text-anchor="middle" fill="#888" font-size="9" font-family="sans-serif">DAGE</text>
+  <rect x="300" y="264" width="64" height="52" rx="7" fill="#0f0f1a" stroke="#7C3AED" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="332" y="293" text-anchor="middle" fill="white" font-size="20" font-weight="800" font-family="monospace">17</text>
+  <text x="332" y="308" text-anchor="middle" fill="#888" font-size="9" font-family="sans-serif">TIMER</text>
+  <rect x="378" y="264" width="64" height="52" rx="7" fill="#0f0f1a" stroke="#7C3AED" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="410" y="293" text-anchor="middle" fill="white" font-size="20" font-weight="800" font-family="monospace">33</text>
+  <text x="410" y="308" text-anchor="middle" fill="#888" font-size="9" font-family="sans-serif">MIN</text>
+  <rect x="456" y="264" width="64" height="52" rx="7" fill="#0f0f1a" stroke="#7C3AED" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="488" y="293" text-anchor="middle" fill="white" font-size="20" font-weight="800" font-family="monospace">08</text>
+  <text x="488" y="308" text-anchor="middle" fill="#888" font-size="9" font-family="sans-serif">SEK</text>
+  <rect x="262" y="338" width="140" height="34" rx="17" fill="#7C3AED"/>
+  <text x="332" y="359" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="sans-serif">Køb billetter</text>
+  <rect x="416" y="338" width="118" height="34" rx="17" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.2"/>
+  <text x="475" y="359" text-anchor="middle" fill="#ccc" font-size="12" font-family="sans-serif">Se program</text>
+  <rect x="0" y="422" width="800" height="78" fill="#0d0d1a"/>
+  <rect x="0" y="422" width="800" height="1" fill="#ffffff" opacity="0.07"/>
+  <text x="200" y="455" text-anchor="middle" fill="#7C3AED" font-size="20" font-weight="800" font-family="sans-serif">600+</text>
+  <text x="200" y="470" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">GAMERE</text>
+  <text x="400" y="455" text-anchor="middle" fill="#7C3AED" font-size="20" font-weight="800" font-family="sans-serif">3 DAGE</text>
+  <text x="400" y="470" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">FESTIVAL</text>
+  <text x="600" y="455" text-anchor="middle" fill="#06B6D4" font-size="20" font-weight="800" font-family="sans-serif">Non-profit</text>
+  <text x="600" y="470" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">100% FRIVILLIGT</text>
+</svg>`;
+
 const projects = [
   {
     image: showcase1,
@@ -21,6 +79,14 @@ const projects = [
     href: 'https://tomrer-showcase.vercel.app/',
     tag: 'Håndværker',
   },
+  {
+    svg: xplanSvg,
+    alt: 'XP-LAN gaming event hjemmeside',
+    title: 'XP-LAN',
+    url: 'xp-lan.dk',
+    href: 'https://xp-lan.dk/',
+    tag: 'E-sportsforening',
+  },
 ];
 ---
 
@@ -31,14 +97,14 @@ const projects = [
     <div class="text-center mb-16 animate-on-scroll">
       <SectionLabel text="Vores arbejde" light />
       <h2 class="font-display text-4xl md:text-5xl text-white leading-[1.1]">
-        Se hvad vi <span class="text-accent">har bygget</span>
+        Se hvad jeg <span class="text-accent">har bygget</span>
       </h2>
       <p class="mt-4 text-white/45 text-lg max-w-lg mx-auto leading-relaxed">
-        Eksempler på hjemmesider vi har designet og bygget.
+        Eksempler på hjemmesider jeg har designet og bygget.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {projects.map((project, i) => (
         <a
           href={project.href}
@@ -60,13 +126,20 @@ const projects = [
               </div>
             </div>
 
-            <!-- Screenshot -->
+            <!-- Screenshot or SVG mockup -->
             <div class="relative overflow-hidden aspect-[16/10]">
-              <Image
-                src={project.image}
-                alt={project.alt}
-                class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-              />
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.alt}
+                  class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                />
+              ) : (
+                <div
+                  class="w-full h-full group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  set:html={project.svg}
+                />
+              )}
               <div class="absolute inset-0 bg-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 flex items-center gap-2 text-white text-sm font-medium translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   Åbn hjemmeside
